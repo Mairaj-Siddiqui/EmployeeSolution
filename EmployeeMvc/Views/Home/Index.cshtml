@@ -1,0 +1,58 @@
+﻿@model IEnumerable<EmployeeMvc.Models.Employee>
+
+<div class="panel">
+    <div class="d-flex justify-content-between align-items-center header-row mb-3">
+    <h1 class="page-title">Employees</h1>
+
+        <a asp-controller="Home" asp-action="Create" class="btn btn-primary  btn-addnew">
+      Add New
+    </a>
+  </div>
+
+  @if (Model == null || !Model.Any())
+  {
+      <div class="alert alert-light border">No employees found.</div>
+  }
+  else
+  {
+      <form method="get" class="d-flex align-items-center search-row mb-3">
+        <input name="searchString"
+               value="@(ViewBag.SearchString ?? "")"
+               class="form-control"
+               placeholder="Search by name" style="max-width:320px;" />
+        <button type="submit" class="btn btn-secondary ms-2">Search</button>
+            @* <a asp-action="Index" class="btn btn-secondary ms-2">Clear</a> *@
+      </form>
+
+      <div class="table-responsive">
+        <table class="table align-middle">
+          <thead>
+            <tr>
+              <th style="width:80px;">ID</th>
+              <th>Name</th>
+              <th style="white-space:nowrap;">Date of Birth</th>
+              <th>Email</th>
+              <th>Phone</th>
+                        @*<th class="actions-col">Actions</th>*@
+            </tr>
+          </thead>
+          <tbody>
+          @foreach (var s in Model)
+          {
+            <tr>
+              <td>@s.Id</td>
+              <td>@s.Name</td>
+              <td>@(s.DateOfBearth?.ToString("dd-MM-yyyy"))</td>
+              <td>@s.Email</td>
+              <td>@s.Phone</td>              
+              <td class="actions-col">
+                <a asp-action="Edit" asp-route-id="@s.Id" class="btn btn-secondary me-2">Edit</a>
+                <a asp-action="Delete" asp-route-id="@s.Id" class="btn btn-danger">Delete</a>
+              </td>
+            </tr>
+          }
+          </tbody>
+        </table>
+      </div>
+  }
+</div>

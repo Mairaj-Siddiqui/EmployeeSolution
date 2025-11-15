@@ -1,0 +1,120 @@
+/* ---- Minimal neutral theme: grey / white / black ---- */
+html {
+    
+    font-size: 20px;
+}
+
+
+body {
+    background: white; /* very light grey page #f7f7f7 */
+}
+
+
+
+/* Simple panel wrapper for page content */
+/* Remove centering and position content to top-left */
+/* === Position all main panels right under the header (top-left) === */
+.panel,
+.employee-box {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 20px 0 0 20px; /* small space from header and left edge */
+    padding: 20px; /* inner spacing */
+    background: #fff;
+    border: 5px solid #e1e1e1;
+    border-radius: 6px;
+    box-shadow: none;
+    max-width: 900px; /* adjust width as needed */
+}
+
+/* Title */
+/* Center page titles inside the box */
+.page-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #111;
+    text-align: center; /* centers the title */
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+
+/* Forms */
+label {
+    font-weight: 600;
+}
+
+.form-control {
+    border: 1px solid #cfcfcf;
+    border-radius: 6px;
+}
+
+    .form-control:focus {
+        border-color: #111;
+        box-shadow: none;
+    }
+
+/* Table */
+.table {
+    border-collapse: collapse;
+    width: 100%;
+    background: #fff;
+}
+
+    .table thead th {
+        background: #fafafa;
+        font-weight: 700;
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    .table td, .table th {
+        padding: 10px 12px;
+        border-bottom: 1px solid #eaeaea;
+    }
+
+    .table tbody tr:hover {
+        background: #f5f5f5; /* subtle row hover */
+    }
+
+.actions-col {
+    width: 160px;
+    text-align: right;
+}
+
+
+
+/* Anchor Add New button inside the box, bottom-left */
+
+.btn-addnew {
+    position: absolute; /* was fixed before — now scoped to the box */
+    left: 24px;
+    bottom: 24px;
+    margin: 0;
+    z-index: 10;
+    /* keep simple minimal theme */
+    background: #000;
+    border: 1px solid #111;
+    color: #fff;
+    font-weight: 600;
+    padding: 10px 22px;
+    border-radius: 6px;
+    box-shadow: none;
+}
+
+
+/* Utility spacing for header row */
+.header-row {
+    gap: 12px;
+}
+
+.search-row {
+    gap: 8px;
+}
+
+/* Make the list container a positioning context */
+.panel, .employee-box {
+    position: relative;
+    padding-bottom: 80px; /* space so the button doesn't overlap the table */
+}
+
